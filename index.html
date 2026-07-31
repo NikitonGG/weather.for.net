@@ -20,10 +20,10 @@
     <!-- Шапка: Поиск -->
     <header class="header">
       <div class="search-group">
-        <input type="text" id="city-input" class="search-input" placeholder="Введи город (Москва, СПБ, Сочи)..." autocomplete="off">
-        <button id="search-btn" class="btn btn-primary"><span>Найти</span></button>
+        <button id="geo-btn" class="btn btn-icon" title="Мое местоположение"><span class="icon">📍</span></button>
+        <input type="text" id="city-input" class="search-input" placeholder="Введите название города..." autocomplete="off">
+        <button id="search-btn" class="btn btn-primary"><span>🔎</span></button>
       </div>
-      <button id="geo-btn" class="btn btn-icon" title="Мое местоположение"><span class="icon">📍</span></button>
     </header>
 
     <!-- Главная карточка -->
@@ -68,13 +68,13 @@
 
     <!-- Почасовой прогноз -->
     <section class="forecast-section">
-      <h2 class="section-title">Почасовой прогноз (24 часа)</h2>
+      <h2 class="section-title">Почасовой прогноз (24 Часа)</h2>
       <div id="hourly-container" class="hourly-track"></div>
     </section>
 
     <!-- Прогноз на неделю -->
     <section class="forecast-section">
-      <h2 class="section-title">Прогноз на неделю</h2>
+      <h2 class="section-title">Прогноз на неделю (7 Дней)</h2>
       <div id="weekly-container" class="weekly-list"></div>
     </section>
 
@@ -88,4 +88,4 @@
 
   <script src="script.js"></script>
 </body>
-        </html>
+            </html>
