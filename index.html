@@ -20,10 +20,10 @@
     <!-- Шапка: Поиск -->
     <header class="header">
       <div class="search-group">
-        <button id="geo-btn" class="btn btn-icon" title="Мое местоположение"><span class="icon">📍</span></button>
-        <input type="text" id="city-input" class="search-input" placeholder="Введите название города..." autocomplete="off">
-        <button id="search-btn" class="btn btn-primary"><span>🔎</span></button>
+        <input type="text" id="city-input" class="search-input" placeholder="Введи город (Москва, СПБ, Сочи)..." autocomplete="off">
+        <button id="search-btn" class="btn btn-primary"><span>Найти</span></button>
       </div>
+      <button id="geo-btn" class="btn btn-icon" title="Мое местоположение"><span class="icon">📍</span></button>
     </header>
 
     <!-- Главная карточка -->
@@ -34,3 +34,58 @@
         <div class="temp-display">
           <span id="current-temp" class="temp-val">--</span>
           <span class="temp-unit">°C</span>
+        </div>
+      </div>
+
+      <!-- Сетка метрик -->
+      <div class="metrics-grid">
+        <article class="metric-card">
+          <span class="metric-label">Ощущается как</span>
+          <span id="feels-like" class="metric-value">--°C</span>
+        </article>
+        <article class="metric-card">
+          <span class="metric-label">Ветер</span>
+          <span id="wind-speed" class="metric-value">-- м/с</span>
+        </article>
+        <article class="metric-card">
+          <span class="metric-label">Влажность</span>
+          <span id="humidity" class="metric-value">--%</span>
+        </article>
+        <article class="metric-card">
+          <span class="metric-label">Давление</span>
+          <span id="pressure" class="metric-value">-- мм рт. ст.</span>
+        </article>
+        <article class="metric-card">
+          <span class="metric-label">УФ-Индекс</span>
+          <span id="uv-index" class="metric-value">--</span>
+        </article>
+        <article class="metric-card">
+          <span class="metric-label">Видимость</span>
+          <span id="visibility" class="metric-value">-- км</span>
+        </article>
+      </div>
+    </section>
+
+    <!-- Почасовой прогноз -->
+    <section class="forecast-section">
+      <h2 class="section-title">Почасовой прогноз (24 часа)</h2>
+      <div id="hourly-container" class="hourly-track"></div>
+    </section>
+
+    <!-- Прогноз на неделю -->
+    <section class="forecast-section">
+      <h2 class="section-title">Прогноз на неделю</h2>
+      <div id="weekly-container" class="weekly-list"></div>
+    </section>
+
+    <!-- Статус -->
+    <footer class="app-footer">
+      <span class="status-indicator online"></span>
+      <span id="status-text">Система готова. Ожидание ввода...</span>
+    </footer>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+        </html>
