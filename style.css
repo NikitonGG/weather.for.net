@@ -7,7 +7,7 @@
   --text-main: #f8fafc;
   --text-muted: #94a3b8;
   
-  --accent-cyan: #00ffff;
+  --accent-cyan: #00f2fe;
   --accent-blue: #4facfe;
   --accent-pink: #ff007f;
   --glow-cyan: rgba(0, 242, 254, 0.25);
@@ -29,7 +29,7 @@
 }
 
 body {
-  background: linear-gradient(180deg, #001212, #080b12);
+  background-color: var(--bg-dark);
   color: var(--text-main);
   min-height: 100vh;
   display: flex;
@@ -45,3 +45,373 @@ body {
   top: 0;
   left: 0;
   width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* 4. Главный контейнер */
+.app-wrapper {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* 5. Шапка и Поиск */
+.header {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+}
+
+.search-group {
+  position: relative;
+  flex-grow: 1;
+  display: flex;
+  gap: 8px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 16px 20px;
+  background: var(--card-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-btn);
+  color: var(--text-main);
+  font-size: 15px;
+  outline: none;
+  transition: var(--transition);
+}
+
+.search-input::placeholder {
+  color: var(--text-muted);
+}
+
+.search-input:focus {
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 20px var(--glow-cyan);
+  background: rgba(22, 33, 54, 0.75);
+}
+
+/* Кнопки */
+.btn {
+  background: var(--card-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--card-border);
+  color: var(--text-main);
+  border-radius: var(--radius-btn);
+  cursor: pointer;
+  font-weight: 600;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-primary {
+  padding: 0 24px;
+  background: linear-gradient(135deg, rgba(0, 242, 254, 0.2), rgba(79, 172, 254, 0.2));
+  border-color: rgba(0, 242, 254, 0.4);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+  color: #000;
+  box-shadow: 0 0 20px var(--glow-cyan);
+  border-color: transparent;
+}
+
+.btn-icon {
+  width: 52px;
+  height: 52px;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.btn-icon:hover {
+  background: var(--card-hover);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+/* 6. Главный блок текущей погоды */
+.current-weather {
+  background: var(--card-bg);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-main);
+  padding: 32px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.main-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.city-name {
+  font-size: 36px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin-bottom: 4px;
+}
+
+.condition-desc {
+  color: var(--text-muted);
+  font-size: 16px;
+  margin-bottom: 20px;
+  text-transform: capitalize;
+}
+
+.temp-display {
+  display: flex;
+  align-items: flex-start;
+  line-height: 1;
+}
+
+.temp-val {
+  font-size: 84px;
+  font-weight: 800;
+  letter-spacing: -3px;
+  background: linear-gradient(180deg, #ffffff 40%, rgba(255, 255, 255, 0.4));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.temp-unit {
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--accent-cyan);
+  margin-top: 12px;
+  margin-left: 4px;
+}
+
+/* Сетка метрик */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.metric-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: var(--radius-card);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: var(--transition);
+}
+
+.metric-card:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.metric-label {
+  font-size: 12px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+
+.metric-value {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+/* 7. Разделы прогнозов */
+.forecast-section {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.section-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+}
+
+/* Почасовой прогноз (Скролл) */
+.hourly-track {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+}
+
+.hourly-track::-webkit-scrollbar {
+  height: 6px;
+}
+
+.hourly-track::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+}
+
+.hourly-card {
+  min-width: 90px;
+  background: var(--card-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-card);
+  padding: 16px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  transition: var(--transition);
+}
+
+.hourly-card:hover {
+  border-color: var(--accent-cyan);
+  transform: translateY(-4px);
+}
+
+.hourly-time {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.hourly-icon {
+  font-size: 24px;
+  margin: 4px 0;
+}
+
+.hourly-temp {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+/* Недельный прогноз */
+.weekly-list {
+  background: var(--card-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-main);
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.weekly-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.weekly-item:last-child {
+  border-bottom: none;
+}
+
+.weekly-day {
+  width: 120px;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.weekly-icon {
+  font-size: 22px;
+  width: 40px;
+  text-align: center;
+}
+
+.weekly-range {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 200px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.temp-bar {
+  flex-grow: 1;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.temp-bar-fill {
+  position: absolute;
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-cyan), var(--accent-blue));
+  border-radius: 10px;
+}
+
+/* 8. Подвал / Статус */
+.app-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--text-muted);
+  padding-top: 12px;
+}
+
+.status-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.status-indicator.online {
+  background: #00ff88;
+  box-shadow: 0 0 10px #00ff88;
+}
+
+/* 9. Адаптив под мобилки */
+@media (max-width: 680px) {
+  .current-weather {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 24px;
+  }
+
+  .metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .weekly-range {
+    width: 140px;
+  }
+}
+
+@media (max-width: 420px) {
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .weekly-day {
+    width: 90px;
+  }
+  }
