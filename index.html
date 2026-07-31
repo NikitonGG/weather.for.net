@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DISTRICT WEATHER // SYSTEM</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Анимированный Canvas задник -->
+  <canvas id="weather-canvas"></canvas>
+
+  <!-- Главный контейнер -->
+  <main class="app-wrapper">
+
+    <!-- Шапка: Поиск -->
+    <header class="header">
+      <div class="search-group">
+        <button id="geo-btn" class="btn btn-icon" title="Мое местоположение"><span class="icon">📍</span></button>
+        <input type="text" id="city-input" class="search-input" placeholder="Введите название города..." autocomplete="off">
+        <button id="search-btn" class="btn btn-primary"><span>🔎</span></button>
+      </div>
+    </header>
+
+    <!-- Главная карточка -->
+    <section class="current-weather">
+      <div class="main-info">
+        <h1 id="city-title" class="city-name">Загрузка...</h1>
+        <p id="weather-condition" class="condition-desc">Опрашиваем спутники...</p>
+        <div class="temp-display">
+          <span id="current-temp" class="temp-val">--</span>
+          <span class="temp-unit">°C</span>

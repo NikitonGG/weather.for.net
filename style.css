@@ -1,0 +1,47 @@
+:root {
+  --bg-dark: #080b12;
+  --card-bg: rgba(18, 26, 43, 0.55);
+  --card-border: rgba(255, 255, 255, 0.08);
+  --card-hover: rgba(255, 255, 255, 0.15);
+  
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  
+  --accent-cyan: #00ffff;
+  --accent-blue: #4facfe;
+  --accent-pink: #ff007f;
+  --glow-cyan: rgba(0, 242, 254, 0.25);
+  
+  --radius-main: 24px;
+  --radius-card: 16px;
+  --radius-btn: 14px;
+  
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 2. Сброс и базовые настройки */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background: linear-gradient(180deg, #001212, #080b12);
+  color: var(--text-main);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* 3. Canvas задник */
+#weather-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
