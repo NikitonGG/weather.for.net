@@ -286,11 +286,12 @@ body {
 }
 
 .hourly-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-5px);
+  box-shadow: 0 0 10px #ffffff30;
 }
 
 .hourly-time {
-  font-size: 13px;
+  font-size: 14px;
   color: #94a8b9;
 }
 
@@ -300,15 +301,15 @@ body {
 }
 
 .hourly-temp {
-  font-size: 17px;
+  font-size: 18px;
   font-weight: 1000;
+  color: #11ffff;
 }
 
 /* Недельный прогноз */
 .weekly-list {
   background: var(--card-bg);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(15px);
   border: 1px solid var(--card-border);
   border-radius: var(--radius-main);
   padding: 16px 20px;
@@ -351,9 +352,9 @@ body {
 
 .temp-bar {
   flex-grow: 1;
-  height: 6px;
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: 10px;
+  height: 8px;
+  background: #ffffff10;
+  border-radius: 15px;
   position: relative;
   overflow: hidden;
 }
@@ -361,7 +362,7 @@ body {
 .temp-bar-fill {
   position: absolute;
   height: 100%;
-  background: linear-gradient(90deg, var(--accent-cyan), var(--accent-blue));
+  background: linear-gradient(90deg, #00ffff, #0055ff);
   border-radius: 10px;
 }
 
